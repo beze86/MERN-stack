@@ -9,6 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import { green, orange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,6 +71,9 @@ export const Header = () => {
             </Link>
             <Link to="/calendar">
               <MenuItem onClick={handlePageClose}>Calendar</MenuItem>
+            </Link>
+            <Link to="/users">
+              <MenuItem onClick={handlePageClose}>Users</MenuItem>
             </Link>
           </Menu>
           <Typography variant="h6" className={classes.title}>
