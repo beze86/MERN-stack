@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createRef } from 'react';
 import { DataTable } from '../../reusables/Table/Table';
 import CleanHouseTasks from '../../../utils/randomize-tasks';
 import Modal from '@material-ui/core/Modal';
@@ -6,13 +6,14 @@ import { ModalBody } from './utils/ModalBody';
 
 
 export const Users = () => {
-    let calendar = new CleanHouseTasks().cleaningTask();
+    
 
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
     const [userModify, setUserModify] = useState({});
 
     useEffect(() => {
+        let calendar = new CleanHouseTasks().cleaningTask();
         setData(calendar)
     }, [])
 
@@ -25,7 +26,7 @@ export const Users = () => {
         setOpen(false);
     };
 
-    const ref = React.createRef();
+    const ref = createRef();
 
     return (
         <div className="">

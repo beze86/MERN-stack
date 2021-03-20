@@ -22,7 +22,7 @@ export const ModalBody = React.forwardRef(({ user, closeModal }, ref) => {
     setUserName(user.name)
     setUserColor(user.color)
     setUserArea(user.area)
-  }, [])
+  }, [user.name, user.color, user.area])
 
   const handleNameUpdate = (e) => {
     setUserName(e.target.value);

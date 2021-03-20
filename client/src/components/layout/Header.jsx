@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -9,7 +9,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { green, orange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,10 @@ export const Header = () => {
   const [pageAnchorEl, setpageAnchorEl] = useState(null);
   const openAccountMenu = Boolean(accountAnchorEl);
   const openPagesMenu = Boolean(pageAnchorEl);
-
+  
+  useEffect(() => {
+    setAuth(false)
+  }, [auth])
   const handleAccountMenu = (e) => {
     setAccountAnchorEl(e.currentTarget);
   };

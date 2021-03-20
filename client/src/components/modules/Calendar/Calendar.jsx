@@ -1,11 +1,11 @@
-import { Calendar, momentLocalizer, Views } from "react-big-calendar";
+import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./Calendar.css";
 import moment from "moment";
 import events from "../../../api/events";
 
 const localizer = momentLocalizer(moment);
-let allViews = Object.keys(Views).map((k) => Views[k]);
+// let allViews = Object.keys(Views).map((k) => Views[k]);
 
 // useful example to keep in mind
 // const ColoredDateCellWrapper = ({ children }) =>
