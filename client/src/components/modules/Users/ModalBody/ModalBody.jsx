@@ -41,7 +41,7 @@ export const ModalBody = React.forwardRef(({ user, closeModal }, ref) => {
       <form className={classes.root} noValidate autoComplete="off">
         <TextField id="standard-basic" fullWidth label="Name" value={userName} onChange={handleNameUpdate} />
         <TextField id="standard-basic" fullWidth label="Color" value={userColor} onChange={handleColorUpdate}  />
-        <TextField id="standard-basic" fullWidth label="Area" value={userArea} onChange={handleAreaUpdate} />
+        {/* <TextField id="standard-basic" fullWidth label="Area" value={userArea} onChange={handleAreaUpdate} /> */}
         <Button variant="contained" color="primary">Update</Button>
         <Button variant="contained" onClick={closeModal}>Cancel</Button>
       </form>

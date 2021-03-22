@@ -1,7 +1,7 @@
 const HouseAreasModel = require('../model/houseAreasModel');
 
-exports.getHouseAreas = (req, res, next) => {
-    HouseAreasModel.getHouseAreas()
+exports.getData = (req, res, next) => {
+    HouseAreasModel.getData()
     .then((data) => {
         res.json(data);
     })

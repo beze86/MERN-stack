@@ -2,7 +2,7 @@ const getDb = require('../db').getDb;
 
 class HouseAreas {
 
-    static getHouseAreas() {
+    static getData() {
         const db = getDb();
         return db.collection('houseAreas').find().toArray();
     }

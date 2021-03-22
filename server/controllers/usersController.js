@@ -1,7 +1,7 @@
 const UsersModel = require('../model/usersModel.js');
 
-exports.getUsers = (req, res, next) => {
-    UsersModel.getUsers()
+exports.getData = (req, res, next) => {
+    UsersModel.getData()
     .then((data) => {
         res.json(data);
     })
