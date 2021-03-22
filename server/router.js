@@ -11,6 +11,6 @@ router.get('/', (req, res, next) => {
 router.get('/users', UsersController.getData);
 router.get('/house-areas', HouseAreasController.getData);
 router.get('/calendar-events', CalendarController.getData);
-router.get('/init', CalendarController.createTasksData);
+router.post('/init', CalendarController.createTasksData);
 
 module.exports = router;
