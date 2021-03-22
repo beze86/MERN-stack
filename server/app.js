@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+const cors = require('cors');
 const mongoConnect = require('./db').mongoConnect;
 
 const dotenv = require('dotenv');
@@ -7,7 +8,7 @@ dotenv.config();
 
 const router = require('./router');
 
-
+app.use(cors());
 app.use('/', router);
 
 app.use((req, res, next) => {

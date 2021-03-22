@@ -1,8 +1,10 @@
 import React, { useEffect, useState, createRef } from 'react';
+import { shuffle } from '../../../utils';
+
 import { DataTable } from '../../reusables/Table/Table';
-import CleanHouseTasks from '../../../utils/randomize-tasks';
 import Modal from '@material-ui/core/Modal';
-import { ModalBody } from './utils/ModalBody';
+import { ModalBody } from './ModalBody/ModalBody';
+import axios from 'axios';
 
 
 export const Users = () => {
@@ -13,8 +15,30 @@ export const Users = () => {
     const [userModify, setUserModify] = useState({});
 
     useEffect(() => {
-        let calendar = new CleanHouseTasks().cleaningTask();
-        setData(calendar)
+        const usersApi = axios.get('http://localhost:3003/users');
+        const areasApi = axios.get('http://localhost:3003/house-areas');
+
+        axios.all([usersApi, areasApi])
+        .then(axios.spread((...responses) => {
+           const users = responses[0];
+           const areas = responses[1];
+            return {users, areas};
+        }))
+        .then((obj) => {
+            shuffle(obj.areas.data);
+            return obj
+        })
+        .then((obj) => {
+            const weeklyTasksData = obj.users.data.map((user, i) => {
+                return {
+                    id: user._id,
+                    area: obj.areas.data[i].area,
+                    name: user.name,
+                    color: user.color
+                }
+            });
+            setData(weeklyTasksData)
+        });        
     }, [])
 
     const handleOpen = (e) => {
