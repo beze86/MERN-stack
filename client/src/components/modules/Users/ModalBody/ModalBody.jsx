@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import "./ModalBody.css";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,38 +13,47 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ModalBody = React.forwardRef(({ user, closeModal }, ref) => {
+export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateUser }, ref) => {
   const classes = useStyles();
-  const [userName, setUserName] = useState('');
-  const [userColor, setUserColor] = useState('');
-  const [userArea, setUserArea] = useState('');
+  const [userData, setUserData] = useState({id:'', name: '', color: ''});
 
   useEffect(() => {
-    setUserName(user.name)
-    setUserColor(user.color)
-    setUserArea(user.area)
-  }, [user.name, user.color, user.area])
+    setUserData(user)
+  }, [])
 
   const handleNameUpdate = (e) => {
-    setUserName(e.target.value);
+    setUserData({...userData, name: e.target.value});
   }
 
   const handleColorUpdate = (e) => {
-    setUserColor(e.target.value);
+    setUserData({...userData, color: e.target.value});
   }
 
-  const handleAreaUpdate = (e) => {
-    setUserArea(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post(`http://localhost:3003/users`, {userData})
+    .then(() => {
+      console.log('ewrer')
+      onSubmitUpdateUser(userData);
+    })
+    .catch((err) => {
+      console.log('wqertrytui')
+      throw err
+    })
   }
-
   return (
+    
     <div ref={ref} className="paper">
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="standard-basic" fullWidth label="Name" value={userName} onChange={handleNameUpdate} />
-        <TextField id="standard-basic" fullWidth label="Color" value={userColor} onChange={handleColorUpdate}  />
-        {/* <TextField id="standard-basic" fullWidth label="Area" value={userArea} onChange={handleAreaUpdate} /> */}
-        <Button variant="contained" color="primary">Update</Button>
-        <Button variant="contained" onClick={closeModal}>Cancel</Button>
+      <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <TextField id="standard-basic" fullWidth label="Name" value={userData.name} onChange={handleNameUpdate} />
+        <TextField id="standard-basic" fullWidth label="Color" value={userData.color} onChange={handleColorUpdate} />
+        <div className="">
+          Pick a color from <a href="https://color.adobe.com/create/color-wheel" target="_blank" rel="noreferrer" >here</a>
+        </div>
+        <div className="modal-buttons-container">
+          <Button type="submit" variant="contained" color="primary">Update</Button>
+          <Button variant="contained" onClick={closeModal}>Cancel</Button>
+        </div>
       </form>
     </div>
   );

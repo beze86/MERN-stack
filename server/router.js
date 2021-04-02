@@ -9,6 +9,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/users', UsersController.getData);
+router.post('/users', UsersController.updateSingleData);
 router.get('/house-areas', HouseAreasController.getData);
 router.get('/calendar-events', CalendarController.getData);
 router.post('/init', CalendarController.createTasksData);

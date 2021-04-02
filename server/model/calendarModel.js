@@ -7,13 +7,11 @@ const moment = require("moment");
 class Calendar {
   async createTasksData() {
     const db = getDb();
-    // let today = new Date();
-    // let sunday = today.setDate(
-    //   today.getDate() + ((0 - 1 - today.getDay() + 7) % 7) + 1
-    // );
+
     let sunday = moment()
       .day(0 + 7)
       .format("x");
+
     let endOfTheTask = moment()
       .day(0 + 13)
       .format("x");

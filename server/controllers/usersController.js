@@ -1,7 +1,7 @@
-const UsersModel = require('../model/usersModel.js');
+const Users = require('../model/usersModel.js');
 
 exports.getData = (req, res, next) => {
-    UsersModel.getData()
+    Users.getData()
     .then((data) => {
         res.json(data);
     })
@@ -9,4 +9,15 @@ exports.getData = (req, res, next) => {
         throw err
     })
 
+}
+
+exports.updateSingleData = (req, res, next) => {
+    const user = new Users();
+    user.updateSingleData(req.body.userData)
+    .then((data) => {
+        res.json(data)
+    })
+    .catch((err) =>{
+        throw err
+    })
 }
