@@ -12,6 +12,7 @@ router.get('/users', UsersController.getData);
 router.post('/users', UsersController.updateSingleData);
 router.get('/house-areas', HouseAreasController.getData);
 router.get('/calendar-events', CalendarController.getData);
+router.post('/calendar-events/event', CalendarController.updateSingleData);
 router.post('/init', CalendarController.createTasksData);
 
 module.exports = router;

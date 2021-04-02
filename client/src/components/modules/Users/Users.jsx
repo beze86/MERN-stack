@@ -12,6 +12,7 @@ export const Users = () => {
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
     const [userRow, setUserRow] = useState({});
+    const [admin, setAdmin] = useState(false)
 
     useEffect(() => {
         axios.get('http://localhost:3003/users')
@@ -30,7 +31,16 @@ export const Users = () => {
             })
     }, [])
 
+    useEffect(() => {
+        if (window.location.href.indexOf('?rank=admin') !== -1) {
+            setAdmin(true)
+        }
+    }, [])
+
     const handleOpen = (e) => {
+        if (!admin) {
+            return
+        }
         setUserRow(e.row)
         setOpen(true);
     };
@@ -41,7 +51,7 @@ export const Users = () => {
 
     const ref = createRef();
 
-    const onTest = (userData) => {
+    const handleSubmit = (userData) => {
         const index = data.findIndex((user) => {
             return user.id === userData.id
         })
@@ -61,7 +71,7 @@ export const Users = () => {
                 open={open}
                 onClose={handleClose}>
                 <div className="">
-                    <ModalBody user={userRow} ref={ref} closeModal={handleClose} onSubmitUpdateUser={onTest} />
+                    <ModalBody user={userRow} ref={ref} closeModal={handleClose} onSubmitUpdateUser={handleSubmit} />
                 </div>
             </Modal>
         </div>

@@ -13,27 +13,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateUser }, ref) => {
+export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateEvent }, ref) => {
   const classes = useStyles();
-  const [userData, setUserData] = useState({id:'', name: '', color: ''});
+  const [eventData, setEventData] = useState({id:'', title: '', description: ''});
 
   useEffect(() => {
-    setUserData(user)
+    setEventData(user)
   }, [])
 
-  const handleNameUpdate = (e) => {
-    setUserData({...userData, name: e.target.value});
-  }
-
   const handleColorUpdate = (e) => {
-    setUserData({...userData, color: e.target.value});
+    setEventData({...eventData, description: e.target.value});
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3003/users`, {userData})
+    axios.post(`http://localhost:3003/calendar-events/event`, {eventData})
     .then(() => {
-      onSubmitUpdateUser(userData);
+      onSubmitUpdateEvent(eventData);
     })
     .catch((err) => {
       throw err
@@ -43,11 +39,8 @@ export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateUser }, r
     
     <div ref={ref} className="paper">
       <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <TextField id="standard-basic" fullWidth label="Name" value={userData.name} onChange={handleNameUpdate} />
-        <TextField id="standard-basic" fullWidth label="Color" value={userData.color} onChange={handleColorUpdate} />
-        <div className="">
-          Pick a color from <a href="https://color.adobe.com/create/color-wheel" target="_blank" rel="noreferrer" >here</a>
-        </div>
+        <TextField id="standard-basic" fullWidth label="Name" value={eventData.title} disabled/>
+        <TextField id="standard-basic" fullWidth label="Description" value={eventData.description} onChange={handleColorUpdate} />
         <div className="modal-buttons-container">
           <Button type="submit" variant="contained" color="primary">Update</Button>
           <Button variant="contained" onClick={closeModal}>Cancel</Button>

@@ -1,18 +1,20 @@
 const getDb = require("../db").getDb;
+const mongodb = require('mongodb'); 
 const UsersModel = require("./usersModel");
 const HouseAreasModel = require("./houseAreasModel");
 const utils = require("../utils/index");
 const moment = require("moment");
 
 class Calendar {
+
   async createTasksData() {
     const db = getDb();
 
-    let sunday = moment()
+    const sunday = moment()
       .day(0 + 7)
       .format("x");
 
-    let endOfTheTask = moment()
+    const endOfTheTask = moment()
       .day(0 + 13)
       .format("x");
 
@@ -21,7 +23,7 @@ class Calendar {
 
     utils.shuffle(areas);
 
-    let sundayTasks = users.map(({ name, color }, i) => {
+    const sundayTasks = users.map(({ name, color }, i) => {
       return {
         title: `${name}`,
         start: Number(sunday),
@@ -37,6 +39,11 @@ class Calendar {
     const db = getDb();
     return db.collection("calendarEvents").find().toArray();
   }
+
+  updateSingleData(eventData) {
+        const db = getDb();
+        return db.collection('calendarEvents').updateOne({_id: new mongodb.ObjectID(eventData._id)}, {$set: {description: eventData.description}})
+    }
 }
 
 module.exports = Calendar;
