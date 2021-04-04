@@ -1,9 +1,9 @@
 import React, { useEffect, useState, createRef } from 'react';
-
 import { DataTable } from './Table/Table';
 import Modal from '@material-ui/core/Modal';
-import { ModalBody } from './ModalBody/ModalBody';
 import axios from 'axios';
+
+import { ModalBody } from './ModalBody/ModalBody';
 
 
 export const Users = () => {

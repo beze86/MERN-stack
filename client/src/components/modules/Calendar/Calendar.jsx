@@ -73,7 +73,7 @@ export const CalendarNew = () => {
         </div>
       </Modal>
       <div>
-        <CreateTasksButton />
+        { admin && <CreateTasksButton />}
         <Calendar
           localizer={localizer}
           events={events}

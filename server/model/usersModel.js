@@ -8,9 +8,9 @@ class Users {
         return db.collection('users').find().toArray();
     }
 
-    updateSingleData(userData) {
+    updateSingleData(id, userData) {
         const db = getDb();
-        return db.collection('users').updateOne({_id: new mongodb.ObjectID(userData.id)}, {$set: {name: userData.name, color: userData.color}})
+        return db.collection('users').updateOne({_id: new mongodb.ObjectID(id)}, {$set: {name: userData.name, color: userData.color}})
     }
 }
 

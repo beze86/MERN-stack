@@ -9,10 +9,14 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/users', UsersController.getData);
-router.post('/users', UsersController.updateSingleData);
+router.put('/users/:id', UsersController.updateSingleData);
+
 router.get('/house-areas', HouseAreasController.getData);
+
 router.get('/calendar-events', CalendarController.getData);
-router.post('/calendar-events/event', CalendarController.updateSingleData);
-router.post('/init', CalendarController.createTasksData);
+router.post('/calendar-events', CalendarController.createTasksData);
+router.put('/calendar-events/:id', CalendarController.updateSingleData);
+
+
 
 module.exports = router;

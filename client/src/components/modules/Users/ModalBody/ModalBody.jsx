@@ -2,8 +2,9 @@ import React, { useState, useEffect, forwardRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import "./ModalBody.css";
 import axios from 'axios';
+
+import "./ModalBody.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +32,7 @@ export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateUser }, r
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3003/users`, {userData})
+    axios.put(`http://localhost:3003/users/${userData.id}`, {userData})
     .then(() => {
       onSubmitUpdateUser(userData);
     })

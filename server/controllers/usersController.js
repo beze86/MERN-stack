@@ -13,7 +13,7 @@ exports.getData = (req, res, next) => {
 
 exports.updateSingleData = (req, res, next) => {
     const user = new Users();
-    user.updateSingleData(req.body.userData)
+    user.updateSingleData(req.params.id, req.body.userData)
     .then((data) => {
         res.json(data)
     })

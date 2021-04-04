@@ -1,14 +1,14 @@
 import React from 'react';
+import Button from "@material-ui/core/Button";
 import axios from 'axios';
 
-import Button from "@material-ui/core/Button";
 import './CreateTasksButton.css';
 
 
 export const CreateTasksButton = () => {
 
     const handleClick = () => {
-        axios.post('http://localhost:3003/init')
+        axios.post('http://localhost:3003/calendar-events')
             .then(() => {
                 window.location.reload()
             })

@@ -40,9 +40,9 @@ class Calendar {
     return db.collection("calendarEvents").find().toArray();
   }
 
-  updateSingleData(eventData) {
+  updateSingleData(id, eventData) {
         const db = getDb();
-        return db.collection('calendarEvents').updateOne({_id: new mongodb.ObjectID(eventData._id)}, {$set: {description: eventData.description}})
+        return db.collection('calendarEvents').updateOne({_id: new mongodb.ObjectID(id)}, {$set: {description: eventData.description}})
     }
 }
 

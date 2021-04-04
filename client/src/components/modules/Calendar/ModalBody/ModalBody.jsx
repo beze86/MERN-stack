@@ -2,8 +2,9 @@ import React, { useState, useEffect, forwardRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import "./ModalBody.css";
 import axios from 'axios';
+
+import "./ModalBody.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +28,7 @@ export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateEvent }, 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3003/calendar-events/event`, {eventData})
+    axios.put(`http://localhost:3003/calendar-events/${eventData._id}`, {eventData})
     .then(() => {
       onSubmitUpdateEvent(eventData);
     })

@@ -12,7 +12,7 @@ exports.getData = (req, res, next) => {
 };
 
 exports.createTasksData = (req, res, next) => {
-  const calendar = new CalendarModel();
+  const calendar = new Calendar();
   calendar
     .createTasksData()
     .then((data) => {
@@ -25,7 +25,7 @@ exports.createTasksData = (req, res, next) => {
 
 exports.updateSingleData = (req, res, next) => {
   const user = new Calendar();
-  user.updateSingleData(req.body.eventData)
+  user.updateSingleData(req.params.id, req.body.eventData)
   .then((data) => {
       res.json(data)
   })
