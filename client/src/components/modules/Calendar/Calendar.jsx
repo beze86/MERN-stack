@@ -19,7 +19,7 @@ export const CalendarNew = () => {
   const ref = createRef();
 
   useEffect(() => {
-    axios.get('http://localhost:3003/calendar-events')
+    axios.get(`${process.env.REACT_APP_API_URL}/calendar-events`)
       .then(({ data }) => {
         setEvents(data)
       })
@@ -62,7 +62,6 @@ export const CalendarNew = () => {
     setEvents(updatedData)
     setOpen(false)
   }
-
   return (
     <>
       <Modal

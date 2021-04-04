@@ -15,7 +15,7 @@ export const Users = () => {
     const [admin, setAdmin] = useState(false)
 
     useEffect(() => {
-        axios.get('http://localhost:3003/users')
+        axios.get(`${process.env.REACT_APP_API_URL}/users`)
             .then(({ data }) => {
                 const userData = data.map(({ _id, name, color }) => {
                     return {
