@@ -1,18 +1,10 @@
 import React, { useState, useEffect, forwardRef } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import axios from 'axios';
 
+import { useStyles } from './ModalBody.styles';
 import "./ModalBody.css";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      marginBottom: '16px',
-    },
-  },
-}));
 
 export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateEvent }, ref) => {
   const classes = useStyles();

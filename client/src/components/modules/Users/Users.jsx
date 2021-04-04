@@ -8,7 +8,6 @@ import { ModalBody } from './ModalBody/ModalBody';
 
 export const Users = () => {
 
-
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
     const [userRow, setUserRow] = useState({});

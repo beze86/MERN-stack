@@ -4,9 +4,10 @@ import Modal from '@material-ui/core/Modal';
 import { ModalBody } from './ModalBody/ModalBody';
 import { CreateTasksButton } from './CreateTasksButton/CreateTasksButton';
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "./Calendar.css";
 import moment from "moment";
 import axios from 'axios';
+
+import "./Calendar.css";
 
 const localizer = momentLocalizer(moment);
 

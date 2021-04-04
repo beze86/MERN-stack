@@ -12,6 +12,8 @@ export const DataTable = ({ data, openModal }) => {
 
   const useStyles = makeStyles({
     root: {
+      height: '400px',
+      width: '100%',
       '& .MuiDataGrid-row': {
         cursor: 'pointer'
       },
@@ -41,7 +43,7 @@ export const DataTable = ({ data, openModal }) => {
   const classes = useStyles();
 
   return (
-    <div style={{ height: 400, width: '100%' }} className={classes.root}>
+    <div className={classes.root}>
       <DataGrid rows={data} columns={columns} pageSize={5} onCellClick={openModal} />
     </div>
   );
