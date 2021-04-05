@@ -1,19 +1,23 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 
 const AdminContext = createContext();
 
-const AdminProvider = ({ children }) => {
-    const [admin, setAdmin] = useState(false);
+const initialState = false;
+const reducer = (state, action) => {
+    switch(action) {
+        case 'setIsAdmin':
+            return state = true;
+        default:
+            return state
+    }
+}
 
-    useEffect(() => {
-        if (window.location.href.indexOf('?rank=admin') !== -1) {
-            setAdmin(true)
-        }
-    }, [admin])
+const AdminProvider = ({ children }) => {
+    const [admin, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <AdminContext.Provider value={[admin, setAdmin]}>
+        <AdminContext.Provider value={{admin: admin, adminDispatch: dispatch}}>
             {children}
         </AdminContext.Provider>
     )
@@ -21,8 +25,8 @@ const AdminProvider = ({ children }) => {
 
 const useAdminState = () => {
     const admin = useContext(AdminContext);
-
-    if (admin === undefined) {
+    
+    if (Object.keys(admin).length === 0) {
         throw new Error('useAdminState must be used within a AdminProvider');
     }
 

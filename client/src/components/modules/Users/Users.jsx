@@ -13,7 +13,8 @@ export const Users = () => {
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
     const [userRow, setUserRow] = useState({});
-    const [admin] = useAdminState();
+
+    const { admin } = useAdminState();
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/users`)

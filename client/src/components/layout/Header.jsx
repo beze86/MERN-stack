@@ -6,6 +6,8 @@ import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 
+import { useAdminState } from '../../contexts/Admin/AdminProvider';
+
 import { routes } from '../../App';
 
 import { useStyles } from './Header.styles';
@@ -14,6 +16,7 @@ import './Header.css';
 export const Header = ({ openParentState }) => {
     const theme = useTheme();
     const classes = useStyles();
+    const { adminDispatch } = useAdminState();
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => {
@@ -73,6 +76,9 @@ export const Header = ({ openParentState }) => {
                             </ListItem>
                         </Link>
                     ))}
+                    <ListItem className="hidden-link" button onClick={() => adminDispatch('setIsAdmin')}>
+                        <ListItemText primary="hidden-link" />
+                    </ListItem>
                 </List>
             </Drawer>
         </>

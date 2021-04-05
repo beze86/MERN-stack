@@ -3,3 +3,7 @@
     text-transform: capitalize;
     color: #000;
 }
+
+.hidden-link {
+    opacity: 0;
+}

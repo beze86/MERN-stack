@@ -17,7 +17,7 @@ export const CalendarNew = () => {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({})
   const [open, setOpen] = useState(false);
-  const [admin] = useAdminState();
+  const { admin } = useAdminState();
 
   const ref = createRef();
 
@@ -69,7 +69,7 @@ export const CalendarNew = () => {
         </div>
       </Modal>
       <div>
-        { admin && <CreateTasksButton />}
+        {admin && <CreateTasksButton />}
         <Calendar
           localizer={localizer}
           events={events}
