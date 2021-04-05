@@ -1,3 +1,23 @@
 .wrapper {
-    background: red;
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+}
+
+.input {
+    margin-bottom: 16px;
+
+    &.input-item {
+        flex: 1;
+        padding-right: 6px;
+    }
+
+    &.input-urgency {
+        flex: 0 0 100px;
+        padding-right: 6px;
+    }
+}
+
+.button {
+    align-self: flex-end;
 }

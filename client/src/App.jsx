@@ -40,7 +40,7 @@ const App = () => {
           <div className={classes.root}>
             <Header openParentState={openParentState} />
             <div className={clsx(classes.content, {
-              [classes.contentShift]: open,
+              // [classes.contentShift]: open,
             })}>
               <div className={classes.drawerHeader} />
               <Container >

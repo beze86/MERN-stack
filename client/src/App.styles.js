@@ -21,11 +21,11 @@ export const useStyles = makeStyles((theme) => ({
       }),
       marginLeft: -drawerWidth,
     },
-    contentShift: {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    },
+    // contentShift: {
+    //   transition: theme.transitions.create('margin', {
+    //     easing: theme.transitions.easing.easeOut,
+    //     duration: theme.transitions.duration.enteringScreen,
+    //   }),
+    //   marginLeft: 0,
+    // },
   }));
