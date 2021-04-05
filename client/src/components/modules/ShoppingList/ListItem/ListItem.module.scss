@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+}
+
+.item {
+  flex: 1;
+}
+
+.urgency {
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  padding: 4px;
+  border-radius: 8px;
+  min-width: 60px;
+  margin-right: 6px;
+
+  &-alarm {
+    background: red;
+  }
+
+  &-warning {
+    background: orange;
+  }
+
+  &-normal {
+    background: blue;
+  }
+}
