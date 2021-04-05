@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 import { useStyles } from './App.styles';
 
-import { AdminProvider } from './contexts/AdminProvider';
+import { AdminProvider } from './contexts/Admin/AdminProvider';
 
 import { Header } from "./components/layout/Header";
 import { Home } from "./components/modules/Home/Home";

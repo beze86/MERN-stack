@@ -10,7 +10,7 @@ const AdminProvider = ({ children }) => {
         if (window.location.href.indexOf('?rank=admin') !== -1) {
             setAdmin(true)
         }
-    }, [])
+    }, [admin])
 
     return (
         <AdminContext.Provider value={[admin, setAdmin]}>

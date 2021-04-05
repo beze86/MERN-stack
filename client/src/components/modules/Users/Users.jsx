@@ -1,9 +1,9 @@
-import React, { useEffect, useState, createRef, useContext } from 'react';
+import React, { useEffect, useState, createRef } from 'react';
 import { DataTable } from './Table/Table';
 import Modal from '@material-ui/core/Modal';
 import axios from 'axios';
 
-import { useAdminState } from '../../../contexts/AdminProvider';
+import { useAdminState } from '../../../contexts/Admin/AdminProvider';
 
 import { ModalBody } from './ModalBody/ModalBody';
 

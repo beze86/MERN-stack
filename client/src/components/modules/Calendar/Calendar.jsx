@@ -7,7 +7,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import axios from 'axios';
 
-import { useAdminState } from '../../../contexts/AdminProvider';
+import { useAdminState } from '../../../contexts/Admin/AdminProvider';
 
 import "./Calendar.css";
 
