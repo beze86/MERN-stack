@@ -7,6 +7,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import axios from 'axios';
 
+import { useAdminState } from '../../../contexts/AdminProvider';
+
 import "./Calendar.css";
 
 const localizer = momentLocalizer(moment);
@@ -15,7 +17,7 @@ export const CalendarNew = () => {
   const [events, setEvents] = useState([]);
   const [event, setEvent] = useState({})
   const [open, setOpen] = useState(false);
-  const [admin, setAdmin] = useState(false)
+  const [admin] = useAdminState();
 
   const ref = createRef();
 
@@ -25,12 +27,6 @@ export const CalendarNew = () => {
         setEvents(data)
       })
   }, [])
-
-  useEffect(() => {
-    if (window.location.href.indexOf('?rank=admin') !== -1) {
-      setAdmin(true)
-    }
-  }, [admin])
 
   const Event = ({ event }) => {
     return (

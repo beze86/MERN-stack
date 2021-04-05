@@ -7,6 +7,8 @@ import clsx from 'clsx';
 
 import { useStyles } from './App.styles';
 
+import { AdminProvider } from './contexts/AdminProvider';
+
 import { Header } from "./components/layout/Header";
 import { Home } from "./components/modules/Home/Home";
 import { CalendarNew } from "./components/modules/Calendar/Calendar";
@@ -29,41 +31,45 @@ const App = () => {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+
   const openParentState = (boolean) => {
     setOpen(boolean)
   }
 
+
   return (
-    <ThemeProvider theme={customTheme}>
-      <Router>
-        <div className={classes.root}>
-          <Header openParentState={openParentState} />
-          <div className={clsx(classes.content, {
-            [classes.contentShift]: open,
-          })}>
-            <div className={classes.drawerHeader} />
-            <Container >
-              <Box py={4}>
-                <Switch>
-                  <Route exact path="/">
-                    <Home />
-                  </Route>
-                  <Route exact path="/calendar">
-                    <CalendarNew />
-                  </Route>
-                  <Route exact path="/users">
-                    <Users />
-                  </Route>
-                  <Route>
-                    <NotFound404 />
-                  </Route>
-                </Switch>
-              </Box>
-            </Container>
+    <AdminProvider>
+      <ThemeProvider theme={customTheme}>
+        <Router>
+          <div className={classes.root}>
+            <Header openParentState={openParentState} />
+            <div className={clsx(classes.content, {
+              [classes.contentShift]: open,
+            })}>
+              <div className={classes.drawerHeader} />
+              <Container >
+                <Box py={4}>
+                  <Switch>
+                    <Route exact path="/">
+                      <Home />
+                    </Route>
+                    <Route exact path="/calendar">
+                      <CalendarNew />
+                    </Route>
+                    <Route exact path="/users">
+                      <Users />
+                    </Route>
+                    <Route>
+                      <NotFound404 />
+                    </Route>
+                  </Switch>
+                </Box>
+              </Container>
+            </div>
           </div>
-        </div>
-      </Router>
-    </ThemeProvider>
+        </Router>
+      </ThemeProvider>
+    </AdminProvider>
   );
 };
 

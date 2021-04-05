@@ -1,7 +1,9 @@
-import React, { useEffect, useState, createRef } from 'react';
+import React, { useEffect, useState, createRef, useContext } from 'react';
 import { DataTable } from './Table/Table';
 import Modal from '@material-ui/core/Modal';
 import axios from 'axios';
+
+import { useAdminState } from '../../../contexts/AdminProvider';
 
 import { ModalBody } from './ModalBody/ModalBody';
 
@@ -11,7 +13,7 @@ export const Users = () => {
     const [data, setData] = useState([]);
     const [open, setOpen] = useState(false);
     const [userRow, setUserRow] = useState({});
-    const [admin, setAdmin] = useState(false)
+    const [admin] = useAdminState();
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/users`)
@@ -28,12 +30,6 @@ export const Users = () => {
             .catch((err) => {
                 throw err;
             })
-    }, [])
-
-    useEffect(() => {
-        if (window.location.href.indexOf('?rank=admin') !== -1) {
-            setAdmin(true)
-        }
     }, [])
 
     const handleOpen = (e) => {
@@ -59,7 +55,6 @@ export const Users = () => {
         setData(updatedData)
         setOpen(false)
     }
-
     return (
         <div className="">
 
