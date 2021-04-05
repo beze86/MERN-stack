@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import { useAdminState } from '../../../contexts/Admin/AdminProvider';
 
-import "./Calendar.css";
+import styles from "./Calendar.module.scss";
 
 const localizer = momentLocalizer(moment);
 
@@ -71,6 +71,7 @@ export const CalendarNew = () => {
       <div>
         {admin && <CreateTasksButton />}
         <Calendar
+          className={styles.wrapper}
           localizer={localizer}
           events={events}
           step={60}

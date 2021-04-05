@@ -2,7 +2,7 @@ import React from 'react';
 import Button from "@material-ui/core/Button";
 import axios from 'axios';
 
-import './CreateTasksButton.css';
+import styles from  './CreateTasksButton.module.scss';
 
 
 export const CreateTasksButton = () => {
@@ -18,7 +18,7 @@ export const CreateTasksButton = () => {
     }
 
     return (
-        <div className="button-container">
+        <div className={styles.wrapper}>
             <Button variant="contained" color="primary" onClick={handleClick}>Get weekly tasks</Button>
         </div>
     )

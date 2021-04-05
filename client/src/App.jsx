@@ -10,10 +10,7 @@ import { useStyles } from './App.styles';
 import { AdminProvider } from './contexts/Admin/AdminProvider';
 
 import { Header } from "./components/layout/Header";
-import { Home } from "./components/modules/Home/Home";
-import { CalendarNew } from "./components/modules/Calendar/Calendar";
-import { Users } from "./components/modules/Users/Users";
-import { NotFound404 } from './components/modules/NotFound/NotFound404';
+import { Home, CalendarNew, Users, NotFound404, ShoppingList } from "./components/modules";
 
 const customTheme = createMuiTheme({
   palette: {
@@ -24,8 +21,7 @@ const customTheme = createMuiTheme({
   },
 });
 
-
-export const routes = [['home', '/'], ['calendar', '/calendar'], ['user', '/users']]
+export const routes = [['home', '/'], ['calendar', '/calendar'], ['user', '/users'], ['shopping-list', '/shopping-list']]
 
 const App = () => {
 
@@ -58,6 +54,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/users">
                       <Users />
+                    </Route>
+                    <Route exact path="/shopping-list">
+                      <ShoppingList />
                     </Route>
                     <Route>
                       <NotFound404 />

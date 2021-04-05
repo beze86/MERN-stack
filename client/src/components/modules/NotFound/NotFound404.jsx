@@ -1,12 +1,12 @@
-import './NotFound404.css';
+import styles from  './NotFound404.module.scss';
 
 export const NotFound404 = () => {
     return (
-        <div className="wrapper">
+        <div className={styles.wrapper}>
             <div>
-                <h1 className="heading">Huh?</h1>
-                <div className="description-box">
-                    <h2 className="description">Page not found! Get back!</h2>
+                <h1 className={styles.heading}>Huh?</h1>
+                <div className={styles['description-box']}>
+                    <h2 className={styles.description}>Page not found! Get back!</h2>
                 </div>
             </div>
         </div>
