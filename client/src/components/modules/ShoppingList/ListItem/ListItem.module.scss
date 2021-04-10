@@ -26,15 +26,15 @@
   min-width: 60px;
   margin-right: 6px;
 
-  &-alarm {
-    background: red;
+  &-urgent {
+    background: #ffa726;
   }
 
-  &-warning {
-    background: orange;
+  &-low {
+    background: #00b0ff;
   }
+}
 
-  &-normal {
-    background: blue;
-  }
+.delete-icon {
+  cursor: pointer;
 }

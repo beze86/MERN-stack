@@ -1,11 +1,33 @@
-const HouseShoppingModel = require('../model/houseShoppingModel');
+const HouseShopping = require("../model/houseShoppingModel");
 
 exports.getData = (req, res, next) => {
-    HouseShoppingModel.getData()
+  HouseShopping.getData()
     .then((data) => {
-        res.json(data);
+      res.json(data);
     })
     .catch((err) => {
-        throw err
+      throw err;
+    });
+};
+
+exports.createItemData = (req, res, next) => {
+    const shopping = new HouseShopping();
+    shopping.createItemData(req.body.itemData)
+    .then((data) => {
+        res.json(data)
     })
+    .catch((err) => {
+        throw err;
+    })
+}
+
+exports.deleteItemData = (req, res, next) => {
+  const shopping = new HouseShopping();
+  shopping.deleteItemData(req.params.id)
+  .then((data) => {
+    res.json(data)
+  })
+  .catch((err) => {
+    throw err;
+  })
 }
