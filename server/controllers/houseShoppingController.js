@@ -1,4 +1,4 @@
-const HouseShopping = require("../model/HouseShoppingModel");
+const HouseShopping = require("../model/houseShoppingModel");
 
 exports.getData = (req, res, next) => {
   HouseShopping.getData()

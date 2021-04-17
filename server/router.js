@@ -5,9 +5,9 @@ const HouseAreasController = require('./controllers/houseAreasController');
 const CalendarController = require('./controllers/calendarController');
 const HouseShoppingListController = require('./controllers/houseShoppingController');
 
-router.get('/', (req, res, next) => {
-    res.status(200).json({test: 'teteteet'});
-})
+// router.get('/', (req, res, next) => {
+//     res.status(200).json({test: 'teteteet'});
+// })
 
 router.get('/users', UsersController.getData);
 router.put('/users/:id', UsersController.updateSingleData);

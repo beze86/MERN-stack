@@ -1,4 +1,4 @@
-const HouseAreasModel = require('../model/HouseAreasModel');
+const HouseAreasModel = require('../model/houseAreasModel');
 
 exports.getData = (req, res, next) => {
     HouseAreasModel.getData()

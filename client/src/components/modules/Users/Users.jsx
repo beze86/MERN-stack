@@ -17,7 +17,7 @@ export const Users = () => {
     const { admin } = useAdminState();
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/users`)
+        axios.get(`/api/users`)
             .then(({ data }) => {
                 const userData = data.map(({ _id, name, color }) => {
                     return {

@@ -1,4 +1,4 @@
-const Calendar = require("../model/CalendarModel");
+const Calendar = require("../model/calendarModel");
 
 
 exports.getData = (req, res, next) => {

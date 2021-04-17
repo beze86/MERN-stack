@@ -19,7 +19,7 @@ export const ListItem = ({ data, deleteItem }) => {
     }, [])
 
     const handleClickDelete = () => {
-        axios.delete(`/shopping-list/item/${data._id}`)
+        axios.delete(`/api/shopping-list/item/${data._id}`)
         .then(() => {
             deleteItem(data._id)
         })

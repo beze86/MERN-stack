@@ -1,7 +1,7 @@
 const getDb = require("../db").getDb;
 const mongodb = require('mongodb'); 
-const UsersModel = require("./UsersModel");
-const HouseAreasModel = require("./HouseAreasModel");
+const UsersModel = require("./usersModel");
+const HouseAreasModel = require("./houseAreasModel");
 const utils = require("../utils/index");
 const moment = require("moment");
 

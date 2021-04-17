@@ -23,7 +23,7 @@ export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateUser }, r
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${process.env.REACT_APP_API_URL}/users/${userData.id}`, { userData })
+    axios.put(`/api/users/${userData.id}`, { userData })
       .then(() => {
         onSubmitUpdateUser(userData);
       })
