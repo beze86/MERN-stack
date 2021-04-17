@@ -1,0 +1,24 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "14.16.0",
+    "yarn": "1.22.10"
+  },
+  "scripts": {
+    "start": "cd server && yarn && yarn start",
+    "heroku-postbuild": "cd client && yarn && yarn build",
+    "server": "cd server && yarn start",
+    "server:dev": "cd server && yarn start",
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn server:dev\" \"yarn client\""
+  },
+  "main": "./server/app.js",
+  "repository": "git@github.com:beze86/MERN-stack.git",
+  "author": "bez <arapi.besmir@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.0.1"
+  }
+}

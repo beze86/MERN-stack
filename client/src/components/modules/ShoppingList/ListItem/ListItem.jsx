@@ -19,7 +19,7 @@ export const ListItem = ({ data, deleteItem }) => {
     }, [])
 
     const handleClickDelete = () => {
-        axios.delete(`${process.env.REACT_APP_API_URL}/shopping-list/item/${data._id}`)
+        axios.delete(`/shopping-list/item/${data._id}`)
         .then(() => {
             deleteItem(data._id)
         })

@@ -8,7 +8,7 @@ import styles from  './CreateTasksButton.module.scss';
 export const CreateTasksButton = () => {
 
     const handleClick = () => {
-        axios.post(`${process.env.REACT_APP_API_URL}/calendar-events`)
+        axios.post(`/calendar-events`)
             .then(() => {
                 window.location.reload()
             })

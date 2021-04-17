@@ -19,7 +19,7 @@ export const ModalBody = forwardRef(({ user, closeModal, onSubmitUpdateEvent }, 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${process.env.REACT_APP_API_URL}/calendar-events/${eventData._id}`, { eventData })
+    axios.put(`/calendar-events/${eventData._id}`, { eventData })
       .then(() => {
         onSubmitUpdateEvent(eventData);
       })

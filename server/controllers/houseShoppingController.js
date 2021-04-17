@@ -1,4 +1,4 @@
-const HouseShopping = require("../model/houseShoppingModel");
+const HouseShopping = require("../model/HouseShoppingModel");
 
 exports.getData = (req, res, next) => {
   HouseShopping.getData()
@@ -14,7 +14,7 @@ exports.createItemData = (req, res, next) => {
     const shopping = new HouseShopping();
     shopping.createItemData(req.body.itemData)
     .then((data) => {
-        res.json(data)
+        res.status(200).json(data)
     })
     .catch((err) => {
         throw err;

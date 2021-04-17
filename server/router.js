@@ -6,7 +6,7 @@ const CalendarController = require('./controllers/calendarController');
 const HouseShoppingListController = require('./controllers/houseShoppingController');
 
 router.get('/', (req, res, next) => {
-    res.json({test: 'teteteet'});
+    res.status(200).json({test: 'teteteet'});
 })
 
 router.get('/users', UsersController.getData);

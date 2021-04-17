@@ -22,7 +22,7 @@ export const CalendarNew = () => {
   const ref = createRef();
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/calendar-events`)
+    axios.get(`/calendar-events`)
       .then(({ data }) => {
         setEvents(data)
       })

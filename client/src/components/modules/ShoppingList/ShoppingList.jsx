@@ -14,7 +14,7 @@ export const ShoppingList = () => {
         
         const fetchItems = async () => {
             try {
-                const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/shopping-list`)
+                const { data } = await axios.get(`/shopping-list`)
                 setItems(data);
             } catch (err) {
                 throw err

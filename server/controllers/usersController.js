@@ -1,4 +1,4 @@
-const Users = require('../model/usersModel.js');
+const Users = require('../model/UsersModel');
 
 exports.getData = (req, res, next) => {
     Users.getData()
@@ -15,7 +15,7 @@ exports.updateSingleData = (req, res, next) => {
     const user = new Users();
     user.updateSingleData(req.params.id, req.body.userData)
     .then((data) => {
-        res.json(data)
+        res.status(200).json(data)
     })
     .catch((err) =>{
         throw err

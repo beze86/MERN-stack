@@ -13,7 +13,7 @@ export const AddtoList = ({addItem}) => {
         if(itemData.item.length === 0 || itemData.urgency.length === 0) {
             return
         }
-        axios.post(`${process.env.REACT_APP_API_URL}/shopping-list/item`, { itemData })
+        axios.post(`/shopping-list/item`, { itemData })
             .then((data) => {
                 addItem(itemData, {data})
                 setItemData({ item: '', urgency: '' })

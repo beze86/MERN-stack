@@ -1,9 +1,9 @@
-const HouseAreasModel = require('../model/houseAreasModel');
+const HouseAreasModel = require('../model/HouseAreasModel');
 
 exports.getData = (req, res, next) => {
     HouseAreasModel.getData()
     .then((data) => {
-        res.json(data);
+        res.status(200).json(data);
     })
     .catch((err) => {
         throw err
